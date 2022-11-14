@@ -230,19 +230,6 @@ provisioner "windows-restart" {
   restart_timeout = "10m"
 }
 
-  //   provisioner "windows-update" {
-  //   pause_before    = "60s"
-  //   search_criteria = "IsInstalled=0"
-  //   filters = [
-  //     "exclude:$_.Title -like '*VMware*'",
-  //     "exclude:$_.Title -like '*Preview*'",
-  //     "exclude:$_.Title -like '*Defender*'",
-  //     "exclude:$_.InstallationBehavior.CanRequestUserInput",
-  //     "include:$true"
-  //   ]
-  //   restart_timeout = "120m"
-  // }
-
   post-processor "manifest" {
     output     = local.manifest_output
     strip_path = true
