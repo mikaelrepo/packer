@@ -205,7 +205,7 @@ build {
   //}
 
   provisioner "windows-update" {
-    pause_before    = "60s"
+    pause_before    = "180s"
     search_criteria = "IsInstalled=0"
     filters = [
       "exclude:$_.Title -like '*VMware*'",
@@ -221,13 +221,13 @@ build {
     elevated_user     = var.build_username
     elevated_password = var.build_password
     inline            = [
-      "Start-Sleep -Seconds 60"
+      "Start-Sleep -Seconds 180"
     ]
   }
 
 provisioner "windows-restart" {
   restart_check_command = "echo restarted"
-  restart_timeout = "10m"
+  restart_timeout = "20m"
 }
 
   post-processor "manifest" {
